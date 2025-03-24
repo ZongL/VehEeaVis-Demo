@@ -33,12 +33,12 @@
       border: 1px solid #ccc;
       background-color: #fff;
       position: relative;
-      overflow: hidden;
     }
 
     #jsonInput {
       width: 800px;
-      height: 100%;
+      height: 550px;
+      margin-top: 0px;
       margin-left: 20px;
       white-space: pre;
       font-family: monospace;
@@ -61,51 +61,51 @@
   <h2>Cybertrcuk-EEA</h2>
   <div id="container">
     <div id="diagram"></div>
-    <textarea id="jsonInput" wrap="soft"></textarea>
+    <textarea id="jsonInput" wrap="soft">
+      {
+        "modules": [
+          { "id": "1", "name": "AutopilotECU", "type": "ECU", "position": { "x": 350, "y": 50, "width": 150, "height": 100, "color": "#ccc" },
+            "leftArray": [{ "portid": "leftport0", "portcolor": 0 }, { "portid": "leftport1", "portcolor": 1 }],
+            "rightArray": [{ "portid": "rightport0", "portcolor": 0 }],
+            "topArray": [{ "portid": "topport0", "portcolor": 0 }],
+            "bottomArray": [{ "portid": "bottomport0", "portcolor": 0 }, { "portid": "bottomport1", "portcolor": 1 }]
+          },
+          { "id": "2", "name": "LeftController", "type": "ECU", "position": { "x": 100, "y": 60, "width": 150, "height": 60, "color": "#ccc" },
+            "leftArray": [],
+            "rightArray": [{ "portid": "rightport0", "portcolor": 0 }, { "portid": "rightport1", "portcolor": 1 }],
+            "topArray": [],
+            "bottomArray": []
+          },
+          { "id": "3", "name": "RightController", "type": "ECU", "position": { "x": 550, "y": 57, "width": 150, "height": 80, "color": "#ccc" },
+            "leftArray": [{ "portid": "leftport0", "portcolor": 0 }],
+            "rightArray": [],
+            "topArray": [],
+            "bottomArray": [{ "portid": "bottomport4", "portcolor": 0 }, { "portid": "bottomport5", "portcolor": 1 }]
+          },
+          { "id": "4", "name": "RearController", "type": "ECU", "position": { "x": 350, "y": 300, "width": 150, "height": 80, "color": "#ccc" },
+            "leftArray": [{ "portid": "leftport0", "portcolor": 0 }],
+            "rightArray": [{ "portid": "rightport4", "portcolor": 0 }, { "portid": "rightport5", "portcolor": 1 }],
+            "topArray": [{ "portid": "topport0", "portcolor": 0 }, { "portid": "topport1", "portcolor": 1 }],
+            "bottomArray": []
+          }
+        ],
+        "connections": [
+          { "from": "AutopilotECU", "to": "LeftController", "fromPort": "leftport0", "toPort": "rightport0", "points": [10, 20] },
+          { "from": "AutopilotECU", "to": "RightController", "fromPort": "rightport0", "toPort": "leftport0" },
+          { "from": "AutopilotECU", "to": "RearController", "fromPort": "bottomport0", "toPort": "topport0" }
+        ]
+      }
+    
+    </textarea>
   </div>
-  <div id="buttons">
+<div id="buttons">
     <button id="loadButton">Load</button>
     <button id="saveButton">Save</button>
   </div>
+
   <!-- import veheeavis.js -->
   <script src="veheeavis.min.js"></script>
   <script> 
-    const defaultJsonData = {
-      modules: [
-        { id: "1", name:"AutopilotECU", type: "ECU", position: { x: 350, y: 50 , width: 150, height:100, color: '#ccc'},
-          leftArray: [{portid: "leftport0", portcolor:0},{portid: "leftport1", portcolor:1}],
-          rightArray: [{portid: "rightport0", portcolor:0},{portid: "rightport1", portcolor:1}],
-          topArray: [{portid: "topport0", portcolor:0}],
-          bottomArray: [{portid: "bottomport0", portcolor:0},{portid: "bottomport1", portcolor:1}]
-        },
-        { id: "2", name:"LeftController", type: "ECU", position: { x: 100, y: 60 , width: 150, height:60, color: '#ccc'},
-          leftArray: [],
-          rightArray: [{portid: "rightport0", portcolor:0},{portid: "rightport1", portcolor:1}],
-          topArray: [],
-          bottomArray: []
-        },
-        { id: "3", name:"RightController", type: "ECU", position: { x: 550, y: 59 , width: 150, height:80, color: '#ccc'},
-          leftArray: [{portid: "leftport0", portcolor:0},{portid: "leftport1", portcolor:1},{portid: "leftport2", portcolor:0}],
-          rightArray: [{portid: "rightport4", portcolor:0},{portid: "rightport5", portcolor:1}],
-          topArray: [],
-          bottomArray: [{portid: "bottomport4", portcolor:0},{portid: "bottomport5", portcolor:1}]
-        },
-        { id: "3", name:"RearController", type: "ECU", position: { x: 350, y: 300 , width: 150, height:80, color: '#ccc'},
-          leftArray: [{portid: "leftport0", portcolor:0}],
-          rightArray: [{portid: "rightport4", portcolor:0},{portid: "rightport5", portcolor:1}],
-          topArray: [{portid: "topport0", portcolor:0},{portid: "topport1", portcolor:1}],
-          bottomArray: []
-        }
-      ],
-      connections: [
-        { from: "AutopilotECU", to: "LeftController" ,fromPort: "leftport0",toPort:"rightport0",points:[10,20,]}, 
-        { from: "AutopilotECU", to: "RightController", fromPort: "rightport0",toPort:"leftport0"},
-        { from: "AutopilotECU", to: "RearController", fromPort: "bottomport0",toPort:"topport0"}
-      ]
-    };
-
-    document.getElementById('jsonInput').value = JSON.stringify(defaultJsonData, null, 1);
-
     const loadJsonData = () => {
       const jsonData = JSON.parse(document.getElementById('jsonInput').value);
       document.getElementById('diagram').innerHTML = ''; // Clear the diagram before reloading
