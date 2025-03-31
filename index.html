@@ -111,18 +111,7 @@
       document.getElementById('diagram').innerHTML = ''; // Clear the diagram before reloading
       new veheeavis.Ploteeavis({
         container: '#diagram',
-        data: jsonData,
-        styles: {
-          module: {
-            width: 150,
-            height: 100,
-            color: '#ccc'
-          },
-          connection: {
-            color: '#000',
-            width: 2
-          }
-        }
+        data: jsonData
       });
     };
 
