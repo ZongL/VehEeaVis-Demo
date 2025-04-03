@@ -78,6 +78,6 @@ please visit [contact form](https://zongl.github.io/).
 
 ## License
 
-The veheeavis [software license](https://your-project-url.com/license).
+The veheeavis [software license](https://github.com/ZongL/VehEeaVis-Demo/blob/main/LICENSE).
 
 Copyright@ ZongL
