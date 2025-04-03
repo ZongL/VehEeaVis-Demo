@@ -51,7 +51,7 @@ The sample demonstrates the construction of a graph representing the electrical 
           topArray: [],
           bottomArray: [{portid: "bottomport4", portcolor:0},{portid: "bottomport5", portcolor:1}]
         },
-        { id: "3", name:"RearController", type: "ECU", position: { x: 350, y: 300 , width: 150, height:80, color: '#ccc'},
+        { id: "4", name:"RearController", type: "ECU", position: { x: 350, y: 300 , width: 150, height:80, color: '#ccc'},
           leftArray: [{portid: "leftport0", portcolor:0}],
           rightArray: [{portid: "rightport4", portcolor:0},{portid: "rightport5", portcolor:1}],
           topArray: [{portid: "topport4", portcolor:0},{portid: "topport5", portcolor:1}],
@@ -66,18 +66,7 @@ The sample demonstrates the construction of a graph representing the electrical 
 
     const myveheeavis = new veheeavis.Ploteeavis({
       container: '#diagram',
-      data: jsonData,
-      styles: {
-        module: {
-          width: 150,
-          height: 100,
-          color: '#ccc'
-        },
-        connection: {
-          color: '#000',
-          width: 2
-        }
-      }
+      data: jsonData
     });
   </script>
 </body>
