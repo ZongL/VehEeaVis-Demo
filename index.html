@@ -106,10 +106,12 @@
   <!-- import veheeavis.js -->
   <script src="veheeavis.min.js"></script>
   <script> 
+    let diagram; // 声明一个变量来存储图表实例
+    
     const loadJsonData = () => {
       const jsonData = JSON.parse(document.getElementById('jsonInput').value);
-      document.getElementById('diagram').innerHTML = ''; // Clear the diagram before reloading
-      new veheeavis.Ploteeavis({
+      document.getElementById('diagram').innerHTML = '';
+      diagram = new veheeavis.Ploteeavis({ // 保存实例引用
         container: '#diagram',
         data: jsonData
       });
@@ -117,9 +119,26 @@
 
     document.getElementById('loadButton').addEventListener('click', loadJsonData);
 
-    // Save button functionality to be implemented later
     document.getElementById('saveButton').addEventListener('click', () => {
-      alert('Save functionality not implemented yet.');
+      if (diagram) {
+        const currentState = diagram.getCurrentState();
+        // 保持缩进格式的 JSON 字符串
+        const jsonString = JSON.stringify(currentState, null, 6); // 使用6个空格缩进以匹配原格式
+        // 添加额外的缩进到整个内容
+        const formattedJson = '      ' + jsonString.replace(/\n/g, '\n      ');
+        document.getElementById('jsonInput').value = formattedJson;
+        
+        // // 可选：提供下载功能
+        // const blob = new Blob([formattedJson], { type: 'application/json' });
+        // const url = URL.createObjectURL(blob);
+        // const a = document.createElement('a');
+        // a.href = url;
+        // a.download = 'diagram_' + new Date().toISOString().slice(0,19).replace(/[:-]/g, '') + '.json';
+        // document.body.appendChild(a);
+        // a.click();
+        // document.body.removeChild(a);
+        // URL.revokeObjectURL(url);
+      }
     });
 
     // Initial load
