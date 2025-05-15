@@ -23,10 +23,19 @@
       background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }    .guide-content {
+      margin: 20px;
     }
 
-    .guide-content {
-      margin: 20px;
+    .package-links {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .npm-link {
+      display: inline-block;
+      text-decoration: none;
+      margin: 0 10px;
     }
 
     .guide-content pre {
@@ -144,10 +153,16 @@
 <div id="buttons">
     <button id="loadButton">Load</button>
     <button id="saveButton">Save</button>
-  </div>
-  <div class="usage-guide">
+  </div>  <div class="usage-guide">
     <h2>Guide</h2>
-    <div class="guide-content">
+    <div class="guide-content">      <div class="package-links">
+        <a href="https://www.npmjs.com/package/veheeavis" target="_blank" class="npm-link">
+          <img src="https://img.shields.io/npm/v/veheeavis.svg" alt="npm version">
+        </a>
+        <a href="https://github.com/ZongL/VehEeaVis-Demo" target="_blank" class="github-link">
+          <img src="https://img.shields.io/github/stars/ZongL/VehEeaVis-Demo?style=social" alt="GitHub stars">
+        </a>
+      </div>
       <h3>Installation</h3>
       <pre><code>npm install veheeavis</code></pre>
       
