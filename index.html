@@ -152,7 +152,7 @@
           
         ],
         "connections": [
-          { "from": "AutopilotECU", "to": "LeftController", "fromPort": "leftport0", "toPort": "rightport0", "points": [10, 20] },
+          { "from": "AutopilotECU", "to": "LeftController", "fromPort": "leftport0", "toPort": "rightport1", "points": [10, 20] },
           { "from": "AutopilotECU", "to": "RightController", "fromPort": "rightport0", "toPort": "leftport0" },
           { "from": "AutopilotECU", "to": "RearController", "fromPort": "bottomport0", "toPort": "topport0" },
           { "from": "LeftController", "to": "Door1", "fromPort": "topport0", "toPort": "bottomport0" },
@@ -168,7 +168,9 @@
 <div id="buttons">
     <button id="loadButton">Load</button>
     <button id="saveButton">Save</button>
-  </div>  <div class="usage-guide">
+    <button id="guideButton">Hide Guide</button>
+  </div>  
+  <div class="usage-guide">
     <h2>Guide</h2>
     <div class="guide-content">      <div class="package-links">
         <a href="https://www.npmjs.com/package/veheeavis" target="_blank" class="npm-link">
@@ -197,7 +199,7 @@
                 leftArray: [{ portid: "leftport0", portcolor: 0 }],
                 rightArray: [{ portid: "rightport0", portcolor: 0 }]
             }
-            // ... 更多模块
+            // ... 
         ],
         connections: [
             {
@@ -206,10 +208,11 @@
                 fromPort: "leftport0",
                 toPort: "rightport0"
             }
-            // ... 更多连接
+            // ... 
         ]
     }
-});</code></pre>      <h3>Configuration</h3>
+      });</code></pre>      
+      <h3>Configuration</h3>
       <ul>
         <li><strong>modules</strong>: Define ECU modules, including position, size, ports and other information</li>
         <li><strong>connections</strong>: Define connection relationships between modules</li>
@@ -222,13 +225,15 @@
   <script src="veheeavis.min.js"></script>
   <script> 
     let diagram; // 声明一个变量来存储图表实例
-    
+    let showGuide = true; // 默认显示
+
     const loadJsonData = () => {
       const jsonData = JSON.parse(document.getElementById('jsonInput').value);
       document.getElementById('diagram').innerHTML = '';
       diagram = new veheeavis.Ploteeavis({ // 保存实例引用
         container: '#diagram',
-        data: jsonData
+        data: jsonData,
+        showGuide: showGuide
       });
     };
 
@@ -242,7 +247,6 @@
         // 添加额外的缩进到整个内容
         const formattedJson = '      ' + jsonString.replace(/\n/g, '\n      ');
         document.getElementById('jsonInput').value = formattedJson;
-        
         // // 可选：提供下载功能
         // const blob = new Blob([formattedJson], { type: 'application/json' });
         // const url = URL.createObjectURL(blob);
@@ -255,6 +259,15 @@
         // URL.revokeObjectURL(url);
       }
     });
+
+    // Guide按钮逻辑
+    const guideButton = document.getElementById('guideButton');
+    guideButton.addEventListener('click', () => {
+      showGuide = !showGuide;
+      guideButton.textContent = showGuide ? 'Hide Guide' : 'Show Guide';
+      loadJsonData(); // 重新加载并应用 showGuide 状态
+    });
+    guideButton.textContent = showGuide ? 'Hide Guide' : 'Show Guide';
 
     // Initial load
     loadJsonData();
