@@ -1,6 +1,6 @@
 # veheeavis
 
-[veheeavis](https://zongl.github.io/VehEeaVis-Demo/) is a JavaScript library for visualizing Vehicle Electrical/Electronic Architectures(EEA).
+[veheeavis](https://github.com/ZongL/VehEeaVis-Demo) is a JavaScript library for visualizing Vehicle Electrical/Electronic Architectures(EEA).
 
 **veheeavis** = Vehicle Electrical/Electronic Architecture Visualizer
 
@@ -71,7 +71,8 @@ The sample demonstrates the construction of a graph representing the electrical 
   </script>
 </body>
 ```
-
+The rendered result will look like this; you can also visit the link to customize it yourself [VehEeaVis-Demo](https://zongl.github.io/VehEeaVis-Demo/).
+![Demo-PNG](https://raw.githubusercontent.com/ZongL/images/main/veheeavis/veheeavisdemo.PNG)
 ## Support
 
 please visit [contact form](https://zongl.github.io/).
