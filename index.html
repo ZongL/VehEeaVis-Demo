@@ -78,7 +78,7 @@
     #diagram {
       width: 100%;
       max-width: 1200px;
-      height: 900px; /* fixed canvas height so the script can size the canvas */
+      height: 1000px; /* fixed canvas height so the script can size the canvas */
       border: 1px solid #ccc;
       background-color: #fff;
       position: relative;
@@ -145,8 +145,8 @@
             "topArray": [],
             "bottomArray": [{ "portid": "bottomport4", "portcolor": 0 }, { "portid": "bottomport5", "portcolor": 1 }]
           },
-          { "id": "4", "name": "RearController", "type": "ECU", "position": { "x": 500, "y": 750, "width": 200, "height": 80, "color": "#ccc" },
-            "leftArray": [{ "portid": "leftport0", "portcolor": 0 }],
+          { "id": "4", "name": "RearController", "type": "ECU", "position": { "x": 500, "y": 750, "width": 200, "height": 160, "color": "#ccc" },
+            "leftArray": [{ "portid": "leftport0", "portcolor": 0 }, { "portid": "leftport1", "portcolor": 1 }, { "portid": "leftport2", "portcolor": 0 }, { "portid": "leftport3", "portcolor": 1 }],
             "rightArray": [{ "portid": "rightport4", "portcolor": 0 }],
             "topArray": [{ "portid": "topport0", "portcolor": 0 }, { "portid": "topport1", "portcolor": 1 }],
             "bottomArray": []
@@ -212,6 +212,30 @@
             "bottomArray": []
           },
           { "id": "16", "name": "DriveInverterRearLeft", "type": "ECU", "position": { "x": 41, "y": 540, "width": 120, "height": 36, "color": "#ccc" },
+            "leftArray": [],
+            "rightArray": [{ "portid": "rightport0", "portcolor": 0 }],
+            "topArray": [],
+            "bottomArray": []
+          },
+          { "id": "17", "name": "DriveInverterRear", "type": "ECU", "position": { "x": 180, "y": 750, "width": 120, "height": 36, "color": "#ccc" },
+            "leftArray": [],
+            "rightArray": [{ "portid": "rightport0", "portcolor": 0 }],
+            "topArray": [],
+            "bottomArray": []
+          },
+          { "id": "18", "name": "TrailerController", "type": "ECU", "position": { "x": 180, "y": 795, "width": 120, "height": 36, "color": "#ccc" },
+            "leftArray": [],
+            "rightArray": [{ "portid": "rightport0", "portcolor": 0 }],
+            "topArray": [],
+            "bottomArray": []
+          },
+          { "id": "19", "name": "ChargePortController", "type": "ECU", "position": { "x": 180, "y": 840, "width": 120, "height": 36, "color": "#ccc" },
+            "leftArray": [],
+            "rightArray":[{ "portid": "rightport0", "portcolor": 0 }],
+            "topArray": [],
+            "bottomArray": []
+          },
+          { "id": "20", "name": "RearSteerActuator", "type": "ECU", "position": { "x": 180, "y": 875, "width": 120, "height": 36, "color": "#ccc" },
             "leftArray": [],
             "rightArray": [{ "portid": "rightport0", "portcolor": 0 }],
             "topArray": [],
