@@ -256,7 +256,11 @@
           { "from": "LeftController", "to": "AdaptiveDamperValveFL", "fromPort": "leftport5", "toPort": "rightport0" },
           { "from": "LeftController", "to": "RideHeightSensorFL", "fromPort": "leftport6", "toPort": "rightport0" },
           { "from": "LeftController", "to": "DriveInverterFront", "fromPort": "leftport7", "toPort": "rightport0" },
-          { "from": "LeftController", "to": "DriveInverterRearLeft", "fromPort": "leftport8", "toPort": "rightport0" }
+          { "from": "LeftController", "to": "DriveInverterRearLeft", "fromPort": "leftport8", "toPort": "rightport0" },
+          { "from": "RearController", "to": "DriveInverterRear", "fromPort": "leftport0", "toPort": "rightport0" },
+          { "from": "RearController", "to": "TrailerController", "fromPort": "leftport1", "toPort": "rightport0" },
+          { "from": "RearController", "to": "ChargePortController", "fromPort": "leftport2", "toPort": "rightport0" },
+          { "from": "RearController", "to": "RearSteerActuator", "fromPort": "leftport3", "toPort": "rightport0" }
         ]
       }
     
