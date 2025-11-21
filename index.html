@@ -147,9 +147,9 @@
           },
           { "id": "4", "name": "RearController", "type": "ECU", "position": { "x": 500, "y": 750, "width": 200, "height": 160, "color": "#ccc" },
             "leftArray": [{ "portid": "leftport0", "portcolor": 0 }, { "portid": "leftport1", "portcolor": 1 }, { "portid": "leftport2", "portcolor": 0 }, { "portid": "leftport3", "portcolor": 1 }],
-            "rightArray": [{ "portid": "rightport4", "portcolor": 0 }],
+            "rightArray": [{ "portid": "rightport0", "portcolor": 0 }, { "portid": "rightport1", "portcolor": 1 }, { "portid": "rightport2", "portcolor": 0 }],
             "topArray": [{ "portid": "topport0", "portcolor": 0 }, { "portid": "topport1", "portcolor": 1 }],
-            "bottomArray": []
+            "bottomArray": [{ "portid": "bottomport0", "portcolor": 0 }]
           },
           { "id": "5", "name": "DoorControllerFrontLeft", "type": "ECU", "position": { "x": 250, "y": 5, "width": 120, "height": 36, "color": "#ccc" },
             "leftArray": [],
@@ -240,10 +240,23 @@
             "rightArray": [{ "portid": "rightport0", "portcolor": 0 }],
             "topArray": [],
             "bottomArray": []
+          },
+          { "id": "21", "name": "Speaker2", "type": "ECU", "position": { "x": 650, "y": 920, "width": 120, "height": 36, "color": "#ccc" },
+            "leftArray": [{ "portid": "leftport0", "portcolor": 0 }],
+            "rightArray": [],
+            "topArray": [],
+            "bottomArray": []
+          },
+          { "id": "22", "name": "AirSuspention", "type": "ECU", "position": { "x": 800, "y": 850, "width": 120, "height": 36, "color": "#ccc" },
+            "leftArray": [{ "portid": "leftport0", "portcolor": 0 }],
+            "rightArray": [],
+            "topArray": [],
+            "bottomArray": []
           }
+
         ],
         "connections": [
-          { "from": "AutopilotECU", "to": "LeftController", "fromPort": "leftport0", "toPort": "rightport1", "points": [10, 20] },
+          { "from": "AutopilotECU", "to": "LeftController", "fromPort": "leftport0", "toPort": "rightport0", "points": [10, 20] },
           { "from": "AutopilotECU", "to": "RightController", "fromPort": "rightport0", "toPort": "leftport0" },
           { "from": "AutopilotECU", "to": "RearController", "fromPort": "bottomport0", "toPort": "topport0" },
           { "from": "LeftController", "to": "DoorControllerFrontLeft", "fromPort": "topport0", "toPort": "bottomport0" },
@@ -260,7 +273,9 @@
           { "from": "RearController", "to": "DriveInverterRear", "fromPort": "leftport0", "toPort": "rightport0" },
           { "from": "RearController", "to": "TrailerController", "fromPort": "leftport1", "toPort": "rightport0" },
           { "from": "RearController", "to": "ChargePortController", "fromPort": "leftport2", "toPort": "rightport0" },
-          { "from": "RearController", "to": "RearSteerActuator", "fromPort": "leftport3", "toPort": "rightport0" }
+          { "from": "RearController", "to": "RearSteerActuator", "fromPort": "leftport3", "toPort": "rightport0" },
+          { "from": "RearController", "to": "Speaker2", "fromPort": "bottomport0", "toPort": "leftport0" },
+          { "from": "RearController", "to": "AirSuspention", "fromPort": "rightport2", "toPort": "leftport0" }
         ]
       }
     
